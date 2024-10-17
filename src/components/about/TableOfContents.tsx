@@ -40,7 +40,8 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ structure, about }) =
                 left: '0',
                 top: '50%',
                 transform: 'translateY(-50%)',
-                whiteSpace: 'nowrap'
+                whiteSpace: 'nowrap',
+                justifyContent: "center"
             }}
             position="fixed"
             paddingLeft="24" gap="32"

@@ -1,8 +1,9 @@
 "use client";
 
 import { AvatarGroup, Flex, Heading, RevealFx, SmartImage, SmartLink, Text } from "@/once-ui/components";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useTranslations } from 'next-intl';
+import styles from './ProjectCard.module.scss';
 
 interface ProjectCardProps {
     href: string;
@@ -26,13 +27,29 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
     const t = useTranslations();
 
+    let loopInterval; // To store the interval ID
+
+    
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsTransitioning(true);
-        }, 1000);
+        }, 450);
 
         return () => clearTimeout(timer);
     }, []);
+
+
+    const loop = () => {
+        // clearInterval(loopInterval);
+        // loopInterval = setTimeout(() => {
+        //     setIsTransitioning(true);
+        //     const nextIndex = (activeIndex + 1) % images.length;
+        //     setTimeout(() => {
+        //         setIsTransitioning(true);
+        //     }, 100);
+        //     setActiveIndex(nextIndex);
+        //     }, 400);
+    };
 
     const handleImageClick = () => {
         if(images.length > 1) {
@@ -42,12 +59,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 setActiveIndex(nextIndex);
                 setTimeout(() => {
                     setIsTransitioning(true);
-                }, 630);
-            }, 630);
+                }, 600);
+            }, 600);
         }
     };
     
     const handleControlClick = (index: number) => {
+        clearTimeout(loopInterval)
         if (index !== activeIndex) {
             setIsTransitioning(true);
             setTimeout(() => {
@@ -63,12 +81,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <Flex
             fillWidth gap="m"
             direction="column">
-            <Flex onClick={handleImageClick}>
+            <Flex 
+            onClick={handleImageClick} 
+            style={{justifyContent: "center"}}
+            onLoad={loop}
+            >
             <RevealFx
-                    style={{width: '100%'}}
-                    delay={0.4}
+                    style={{
+                        width: '100%',
+                        alignContent: "center"
+                    }}
+                    delay={0}
                     trigger={isTransitioning}
                     speed="fast">
+                        <Flex className={styles.padding} paddingY="24"></Flex>
                     <SmartImage
                         tabIndex={0}
                         radius="l"

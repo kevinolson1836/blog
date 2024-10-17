@@ -3,7 +3,7 @@ import React from 'react';
 import { Heading, Flex, Text, Button,  Avatar, RevealFx } from '@/once-ui/components';
 import { Projects } from '@/components/work/Projects';
 
-import { baseURL, routes, renderContent } from '@/app/resources'; 
+import { baseURL, routes, renderContent, display } from '@/app/resources'; 
 import { Mailchimp } from '@/components';
 import { Posts } from '@/components/blog/Posts';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
@@ -77,21 +77,41 @@ export default function Home(
 			<Flex
 				fillWidth
 				direction="column"
-				justifyContent="center" alignItems="center"
+				alignItems='center'
+				align="center"
+				style={{justifyContent: "center"}}
+				paddingX='48'
 				gap="xl">
 
 					{/* sub heading section */}
 					<Flex
 						direction="column"
-						fillWidth maxWidth="s" gap="m">
+						fillWidth maxWidth="s" gap="m" 
+						paddingY='1'
+						>
 						<RevealFx translateY="4" >
+							
+							<Flex
+									gap="8"
+									alignItems="center"
+									justifyContent="center"
+									paddingBottom='32'
+									style={{display: "inline-block"}}
+									>
+									{about.avatar.display && (
+										<Avatar
+											src={person.avatar}
+											size="xl"/>
+										)}
+								</Flex>
+
 							<Heading
 								wrap="balance"
 								variant="display-strong-l">
 								{home.headline}
 							</Heading>
-						</RevealFx>
-						<RevealFx translateY="8" delay={0.2}>
+						{/* </RevealFx> */}
+						{/* <RevealFx translateY="8" delay={0.2}> */}
 							<Text
 								wrap="balance"
 								onBackground="neutral-weak"
@@ -100,26 +120,24 @@ export default function Home(
 							</Text>
 						</RevealFx>
 
-						{/* about me section */}
 						<RevealFx translateY="12" delay={0.4}>
-							<Button
+							{/* <Button
 								data-border="rounded"
 								href={`/${locale}/about`}
 								variant="tertiary"
 								suffixIcon="chevronRight"
-								size="m">
-								<Flex
+								size="l"> */}
+								{/* <Flex
 									gap="8"
-									alignItems="center">
+									alignItems="center"
+									justifyContent="center">
 									{about.avatar.display && (
 										<Avatar
-											style={{marginLeft: '-0.75rem', marginRight: '0.25rem'}}
 											src={person.avatar}
-											size="m"/>
-										)}
-										{t("about.title")}
-								</Flex>
-							</Button>
+											size="xl"/>
+										)}d
+								</Flex> */}
+							{/* </Button> */}
 						</RevealFx>
 					
 					</Flex>
@@ -127,7 +145,7 @@ export default function Home(
 			</Flex>
 			
 			{/* under main heading */}
-			<RevealFx translateY="16" delay={0.6}>
+			<RevealFx translateY="16" delay={0.1}>
 				<Projects range={[1,1]} locale={locale}/>
 			</RevealFx>
 			{routes['/blog'] && (
