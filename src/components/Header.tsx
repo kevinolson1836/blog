@@ -98,7 +98,7 @@ export const Header = () => {
                             prefixIcon="home"
                             href={`/${params?.locale}`}
                             selected={pathname === "/"}>
-                            <Flex paddingX="2" hide="s">{home.label}</Flex>
+                            <Flex paddingX="20" hide="s">{home.label}</Flex>
                         </ToggleButton>
                     )}
                     { routes['/about'] && (
@@ -106,7 +106,7 @@ export const Header = () => {
                             prefixIcon="person"
                             href={`/${params?.locale}/about`}
                             selected={pathname === "/about"}>
-                            <Flex paddingX="2" hide="s">{about.label}</Flex>
+                            <Flex paddingX="20" hide="s">{about.label}</Flex>
                         </ToggleButton>
                     )}
                     { routes['/work'] && (
@@ -114,7 +114,7 @@ export const Header = () => {
                             prefixIcon="grid"
                             href={`/${params?.locale}/work`}
                             selected={pathname.startsWith('/work')}>
-                            <Flex paddingX="2" hide="s">{work.label}</Flex>
+                            <Flex paddingX="20" hide="s">{work.label}</Flex>
                         </ToggleButton>
                     )}
                     { routes['/blog'] && (
@@ -122,15 +122,16 @@ export const Header = () => {
                             prefixIcon="book"
                             href={`/${params?.locale}/blog`}
                             selected={pathname.startsWith('/blog')}>
-                            <Flex paddingX="2" hide="s">{blog.label}</Flex>
+                            <Flex paddingX="20" hide="s">{blog.label}</Flex>
+                            
                         </ToggleButton>
                     )}
                     { routes['/gallery'] && (
                         <ToggleButton
-                            prefixIcon="gallery"
-                            href={`/${params?.locale}/gallery`}
-                            selected={pathname.startsWith('/gallery')}>
-                            <Flex paddingX="2" hide="s">{gallery.label}</Flex>
+                        prefixIcon="gallery"
+                        href={`/${params?.locale}/gallery`}
+                        selected={pathname.startsWith('/gallery')}>
+                            <Flex paddingX="20" hide="s">{gallery.label}</Flex>
                         </ToggleButton>
                     )}
                 </Flex>

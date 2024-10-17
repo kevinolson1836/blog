@@ -23,7 +23,7 @@ export async function GET(request: Request) {
                     width: '100%',
                     height: '100%',
                     padding: '8rem',
-                    background: '#151515',
+                    background: 'pink',
                 }}>
                 <div
                     style={{

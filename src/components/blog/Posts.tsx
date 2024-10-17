@@ -1,5 +1,5 @@
 import { formatDate, getPosts } from '@/app/utils';
-import { Flex, Grid, Heading, SmartLink, Text } from '@/once-ui/components';
+import { Flex, Grid, Heading, SmartLink, Text, Icon } from '@/once-ui/components';
 import styles from '@/components/blog/Posts.module.scss';
 
 interface PostsProps {
@@ -31,15 +31,21 @@ export function Posts({
             { displayedBlogs.length > 0 && (
                 <Grid
                     columns={`repeat(${columns}, 1fr)`} mobileColumns="1col"
-                    fillWidth marginBottom="40" gap="m" paddingX="l">
+                    fillWidth marginBottom="40" gap="l" paddingX="l">
                     {displayedBlogs.map((post) => (
                         <SmartLink
                             style={{
                                 textDecoration: 'none',
                                 margin: '0',
                                 height: 'fit-content',
+                                borderLeft: "4px solid grey",  // Adds a border to the left
+                                borderRight: "1px solid grey",  // Adds a border to the left
+                                borderBottom: "4px solid grey", // Adds a border to the bottom                            
+                                borderTop: "1px solid grey" // Adds a border to the bottom                            
                             }}
                             className={styles.hover}
+                            prefixIcon=""
+                            suffixIcon=""
                             key={post.slug}
                             href={`blog/${post.slug}`}>
                             <Flex
@@ -54,12 +60,19 @@ export function Posts({
                                 <Heading as="h2" wrap="balance">
                                     {post.metadata.title}
                                 </Heading>
+                                
                                 <Text
                                     variant="body-default-s"
                                     onBackground="neutral-weak">
                                     {formatDate(post.metadata.publishedAt, false)}
                                 </Text>
+                                {/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */}
                             </Flex>
+                            {/* <Icon
+                                name="refresh"
+                                size="m"
+                                onBackground="neutral-medium"
+                                /> */}
                         </SmartLink>
                     ))}
                 </Grid>

@@ -6,12 +6,22 @@
 
         .indicator {
             transform: rotate(0);
+            animation: spin 1.2s linear infinite; /* Create an infinite spinning animation */
         }
     }
 }
 
 .indicator {
     transform: rotate(-90deg);
-    left: -2rem;
+    left: -2.5rem;
     transition: var(--transition-property) var(--transition-duration-micro-medium) var(--transition-timing-function);
 }
+
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);  /* Full 360-degree rotation */
+    }
+  }

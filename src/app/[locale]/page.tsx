@@ -50,7 +50,7 @@ export default function Home(
 	const { home, about, person, newsletter } = renderContent(t);
 	return (
 		<Flex
-			maxWidth="m" fillWidth gap="xl"
+			maxWidth="xl" fillWidth gap="xl"
 			direction="column" alignItems="center">
 			<script
 				type="application/ld+json"
@@ -77,11 +77,14 @@ export default function Home(
 			<Flex
 				fillWidth
 				direction="column"
-				paddingY="l" gap="m">
+				justifyContent="center" alignItems="center"
+				gap="xl">
+
+					{/* sub heading section */}
 					<Flex
 						direction="column"
 						fillWidth maxWidth="s" gap="m">
-						<RevealFx translateY="4">
+						<RevealFx translateY="4" >
 							<Heading
 								wrap="balance"
 								variant="display-strong-l">
@@ -96,6 +99,16 @@ export default function Home(
 								{home.subline}
 							</Text>
 						</RevealFx>
+						<RevealFx translateY="8" delay={0.2}>
+							<Text
+								wrap="balance"
+								onBackground="neutral-weak"
+								variant="body-default-l">
+								{home.test}
+							</Text>
+						</RevealFx>
+
+						{/* about me section */}
 						<RevealFx translateY="12" delay={0.4}>
 							<Button
 								data-border="rounded"
@@ -116,15 +129,18 @@ export default function Home(
 								</Flex>
 							</Button>
 						</RevealFx>
+					
 					</Flex>
-				
+
 			</Flex>
+			
+			{/* under main heading */}
 			<RevealFx translateY="16" delay={0.6}>
 				<Projects range={[1,1]} locale={locale}/>
 			</RevealFx>
 			{routes['/blog'] && (
 				<Flex fillWidth paddingX="20">
-					<Posts range={[1,2]} columns="2" locale={locale}/>
+					<Posts range={[1,4]} columns="2" locale={locale}/>
 				</Flex>
 			)}
 			<Projects range={[2]} locale={locale}/>

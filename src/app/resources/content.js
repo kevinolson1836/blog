@@ -1,5 +1,5 @@
 import { InlineCode } from "@/once-ui/components";
-
+  
 const person = {
     firstName: 'Kevin',
     lastName:  'Olson',
@@ -7,7 +7,7 @@ const person = {
         return `${this.firstName} ${this.lastName}`;
     },
     role:      'Tech enthusiast',
-    avatar:    '/images/avatar.jpg',
+    avatar:    '/images/avatar-circle.png',
     location:  'America/Chicago',        // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
     languages: []  // optional: Leave the array empty if you don't want to display languages
 }
@@ -48,7 +48,8 @@ const home = {
     title: `${person.name}'s Portfolio`,
     description: `Portfolio website showcasing my work.`,
     headline: <>Tech enthusiast by trade and hobby</>,
-    subline: <>I'm Kevin, currently a Building Automation Systems Specialist with Siemens.<br/>After hours, I tinker with my own projects.</>
+    subline: <>I'm Kevin, currently a Building Automation Systems Specialist with Siemens.<br/>After hours, I tinker with my own projects.</>,
+    test: <>like what wtf</>
 }
 
 const about = {
