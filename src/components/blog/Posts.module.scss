@@ -2,11 +2,12 @@
     transition: var(--transition-property) var(--transition-duration-micro-medium) var(--transition-timing-function);
 
     &:hover {
-        transform: translateX(var(--static-space-8));
-
+        // transform: translateX(var(--static-space-8));
+        // transform: scale(1.1) translateX(var(--static-space-8)); 
+        animation: scaleUpDown 0.4s linear; /* Create an infinite spinning animation */
+        
         .indicator {
             transform: rotate(0);
-            animation: spin 1.2s linear infinite; /* Create an infinite spinning animation */
         }
     }
 }
@@ -17,11 +18,33 @@
     transition: var(--transition-property) var(--transition-duration-micro-medium) var(--transition-timing-function);
 }
 
-@keyframes spin {
-    from {
-      transform: rotate(0deg);
+.blink {
+    // maybe add blinking, not currntly working
+    text-decoration: underline; /* Underline the text */
+    animation: blinky 0.4s; /* Create an infinite spinning animation */
+}
+
+@keyframes scaleUpDown {
+    0% {
+      transform: scale(1);  /* Start at the original size */
     }
-    to {
-      transform: rotate(360deg);  /* Full 360-degree rotation */
+    50% {
+      transform: scale(1.2); /* Scale up to 1.1x the original size */
+    }
+    100% {
+      transform: scale(1);  /* Scale back down to the original size */
+    }
+  }
+
+
+@keyframes blinky {
+    0% {
+        text-decoration: underline; /* Underline the text */
+    }
+    50% {
+        text-decoration: none; /* Underline the text */
+    }
+    100% {
+      text-decoration: underline; /* Underline the text */
     }
   }

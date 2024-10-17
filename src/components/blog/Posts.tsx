@@ -38,14 +38,16 @@ export function Posts({
                                 textDecoration: 'none',
                                 margin: '0',
                                 height: 'fit-content',
+                                marginRight: "20px",
                                 borderLeft: "4px solid grey",  // Adds a border to the left
-                                borderRight: "1px solid grey",  // Adds a border to the left
+                                borderRight: "2px solid grey",  // Adds a border to the left
                                 borderBottom: "4px solid grey", // Adds a border to the bottom                            
-                                borderTop: "1px solid grey" // Adds a border to the bottom                            
+                                borderTop: "2px solid grey", // Adds a border to the bottom        
+                                
                             }}
                             className={styles.hover}
-                            prefixIcon=""
-                            suffixIcon=""
+                            prefixIcon="chevronRight"
+                            iconSize="m"
                             key={post.slug}
                             href={`blog/${post.slug}`}>
                             <Flex
@@ -55,8 +57,7 @@ export function Posts({
                                 <Flex
                                     position="absolute"
                                     className={styles.indicator}
-                                    width="20" height="2"
-                                    background="neutral-strong"/>
+                                    width="20" height="2"/>
                                 <Heading as="h2" wrap="balance">
                                     {post.metadata.title}
                                 </Heading>

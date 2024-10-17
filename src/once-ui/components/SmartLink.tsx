@@ -4,6 +4,9 @@ import React, { forwardRef, ReactNode } from 'react';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { Icon } from '.';
+import { Flex } from '@/once-ui/components';
+import { relative } from 'path';
+import styles from '@/components/blog/Posts.module.scss';
 
 interface SmartLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     href: string;
@@ -31,7 +34,7 @@ const SmartLink = forwardRef<HTMLAnchorElement, SmartLinkProps>(({
 
         const content = (
             <>
-                {prefixIcon && <Icon name={prefixIcon} size={iconSize}/>}
+                {prefixIcon && <Flex  className={styles.blink} style={{ position: "relative", left: '10px'}}><Icon name={prefixIcon} size={iconSize}/></Flex>}
                 {children}
                 {suffixIcon && <Icon name={suffixIcon} size={iconSize}/>}
             </>
