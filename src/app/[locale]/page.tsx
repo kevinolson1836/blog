@@ -99,14 +99,6 @@ export default function Home(
 								{home.subline}
 							</Text>
 						</RevealFx>
-						<RevealFx translateY="8" delay={0.2}>
-							<Text
-								wrap="balance"
-								onBackground="neutral-weak"
-								variant="body-default-l">
-								{home.test}
-							</Text>
-						</RevealFx>
 
 						{/* about me section */}
 						<RevealFx translateY="12" delay={0.4}>
