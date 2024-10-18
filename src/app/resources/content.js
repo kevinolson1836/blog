@@ -1,5 +1,5 @@
 import { InlineCode } from "@/once-ui/components";
-import { Certificate } from "crypto";
+// import { Certificate } from "crypto";
   
 const person = {
     firstName: 'Kevin',
@@ -111,7 +111,7 @@ const about = {
         title: 'Education',
         institutions: [
             {
-                name: 'Illinois State University ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  2020-2023',
+                name: 'Illinois State University 2020-2023',
                 description: <>Earned a Batchlors of Science in Information Systems.</>,
             },
             {
