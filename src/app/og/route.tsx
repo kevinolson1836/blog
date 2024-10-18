@@ -23,7 +23,6 @@ export async function GET(request: Request) {
                     width: '100%',
                     height: '100%',
                     padding: '8rem',
-                    background: 'pink',
                 }}>
                 <div
                     style={{
@@ -43,7 +42,7 @@ export async function GET(request: Request) {
                             whiteSpace: 'pre-wrap',
                             textWrap: 'balance',
                         }}>
-                        {title}
+                        {title} dsadasds
                     </span>
                     <div
                         style={{

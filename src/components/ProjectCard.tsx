@@ -28,12 +28,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     const t = useTranslations();
 
     let loopInterval; // To store the interval ID
+    const [keep_looping, setkeep_looping] = useState(true);
 
     
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsTransitioning(true);
-        }, 450);
+        }, 500);
 
         return () => clearTimeout(timer);
     }, []);
@@ -41,17 +42,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
     const loop = () => {
         // clearInterval(loopInterval);
-        // loopInterval = setTimeout(() => {
-        //     setIsTransitioning(true);
-        //     const nextIndex = (activeIndex + 1) % images.length;
-        //     setTimeout(() => {
-        //         setIsTransitioning(true);
-        //     }, 100);
-        //     setActiveIndex(nextIndex);
-        //     }, 400);
+        if (keep_looping == true){
+            loopInterval = setTimeout(() => {
+                setIsTransitioning(true);
+                const nextIndex = (activeIndex + 1) % images.length;
+                    setTimeout(() => {
+                        setIsTransitioning(true);
+                    }, 500);
+                setActiveIndex(nextIndex);
+                }, 7000);
+        }
     };
 
     const handleImageClick = () => {
+        setkeep_looping(false);
         if(images.length > 1) {
             setIsTransitioning(false);
             setTimeout(() => {
@@ -59,13 +63,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 setActiveIndex(nextIndex);
                 setTimeout(() => {
                     setIsTransitioning(true);
-                }, 600);
-            }, 600);
+                }, 50);
+            }, 300);
         }
     };
     
     const handleControlClick = (index: number) => {
-        clearTimeout(loopInterval)
+        setkeep_looping(false)
+        console.log("should stop looping!")
         if (index !== activeIndex) {
             setIsTransitioning(true);
             setTimeout(() => {
@@ -111,7 +116,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             </Flex>
             {images.length > 1 && (
                 <Flex
-                    gap="4" paddingX="s"
+                    gap="4" paddingX="l"
                     fillWidth maxWidth={32}
                     justifyContent="center">
                     {images.map((_, index) => (
@@ -126,7 +131,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                 transition: 'background 0.3s ease',
                             }}
                             fillWidth
-                            height="2">
+                            height="4">
                         </Flex>
                     ))}
                 </Flex>

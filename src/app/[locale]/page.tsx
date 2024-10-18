@@ -148,6 +148,10 @@ export default function Home(
 			<RevealFx translateY="16" delay={0.1}>
 				<Projects range={[1,1]} locale={locale}/>
 			</RevealFx>
+			
+			{/* used as padding */}
+			<Flex></Flex>
+
 			{routes['/blog'] && (
 				<Flex fillWidth paddingX="20">
 					<Posts range={[1,4]} columns="2" locale={locale}/>

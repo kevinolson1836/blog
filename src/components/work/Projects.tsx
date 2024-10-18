@@ -21,10 +21,10 @@ export function Projects({ range, locale }: ProjectsProps) {
 
     return (
         <Flex
-            fillWidth gap="l" marginBottom="40" paddingX="l"
-            direction="column">
+        fillWidth gap="l" marginBottom="40" paddingX="l"
+        direction="column">
             {displayedProjects.map((post) => (
-                <ProjectCard
+               <ProjectCard
                     key={post.slug}
                     href={`work/${post.slug}`}
                     images={post.metadata.images}
@@ -34,5 +34,6 @@ export function Projects({ range, locale }: ProjectsProps) {
                     avatars={post.metadata.team?.map((member) => ({ src: member.avatar })) || []}/>
             ))}
         </Flex>
+
     );
 }

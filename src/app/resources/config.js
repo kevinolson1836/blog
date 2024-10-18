@@ -14,7 +14,7 @@ const routes = {
     '/about':   true,
     '/work':    true,
     '/blog':    true,
-    '/gallery': true,
+    '/homelab': true,
 }
 
 // Enable password protection on selected routes
@@ -25,14 +25,14 @@ const protectedRoutes = {
 
 const effects = {
     gradient: true,
-    dots:     true,
+    dots:     false,
     lines:    false,
 }
 
 const style = {
     theme:       'dark',         // dark | light
-    neutral:     'gray',         // sand | gray | slate
-    brand:       'aqua',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+    neutral:     'sand',         // sand | gray | slate
+    brand:       'red',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
     accent:      'yellow',       // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
     solid:       'contrast',     // color | contrast
     solidStyle:  'flat',         // flat | plastic
@@ -50,8 +50,8 @@ const mailchimp = {
     action: 'https://url/subscribe/post?parameters',
     effects: {
         gradient: true,
-        dots:     false,
-        lines:    true,
+        dots:     true,
+        lines:    false,
     }
 }
 

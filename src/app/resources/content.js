@@ -1,4 +1,5 @@
 import { InlineCode } from "@/once-ui/components";
+import { Certificate } from "crypto";
   
 const person = {
     firstName: 'Kevin',
@@ -69,7 +70,7 @@ const about = {
     intro: {
         display: true,
         title: 'Introduction',
-        description: <>Kevin is a guy that needs to write an real description about him self.</>
+        description: <> Building Automation Specialist at Siemens with a passion for IT. Combing his expertise in smart controllers and building systems with a love for technology, managing home servers and developing creative tech projects.</>
     },
     work: {
         display: true, // set to false to hide this section
@@ -107,52 +108,69 @@ const about = {
     },
     studies: {
         display: true, // set to false to hide this section
-        title: 'Studies',
+        title: 'Education',
         institutions: [
             {
-                name: 'University of Jakarta',
-                description: <>Studied software engineering.</>,
+                name: 'Illinois State University ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  2020-2023',
+                description: <>Earned a Batchlors of Science in Information Systems.</>,
             },
             {
-                name: 'Build the Future',
-                description: <>Studied online marketing and personal branding.</>,
+                name: 'Certificates',
+                description: <>Actively pursuing the A+ Certification.</>,
             }
         ]
     },
+    // certs: {
+    //     display: true, // set to false to hide this section
+    //     title: 'Certifications',
+    //     certs: [
+    //         {
+    //             name: 'Certificates',
+    //             description: <>Actively pursuing the A+ Certification.</>,
+    //         }
+    //     ]
+    // },
     technical: {
         display: true, // set to false to hide this section
         title: 'Technical skills',
         skills: [
             {
-                title: 'Figma',
-                description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
-                images: [
-                    {
-                        src: '/images/projects/project-01/cover-02.jpg',
-                        alt: 'Project image',
-                        width: 16,
-                        height: 9
-                    },
-                    {
-                        src: '/images/projects/project-01/cover-03.jpg',
-                        alt: 'Project image',
-                        width: 16,
-                        height: 9
-                    },
-                ]
+                title: 'Linux',
+                description: <>Self hosting and daily driving Linux based systems on physical and virtual machines.</>,
+                images: []
             },
             {
-                title: 'Next.js',
-                description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
+                title: 'Building Automation',
+                description: <>Professionally working in Building Automation since 2023</>,
+                images: []
+            },
+            {
+                title: 'Docker',
+                description: <>Running and maintaining high availability Docker containers for mission critical services.</>,
                 images: [
-                    {
-                        src: '/images/projects/project-01/cover-04.jpg',
-                        alt: 'Project image',
-                        width: 16,
-                        height: 9
-                    },
+                    // {
+                    //     src: '/images/projects/project-01/cover-04.jpg',
+                    //     alt: 'Project image',
+                    //     width: 16,
+                    //     height: 9
+                    // },
                 ]
-            }
+            },  
+            {
+                title: 'Networking',
+                description: <>Extensive work with Ethernet and MS/TP networks.</>,
+                images: []
+            },
+            {
+                title: 'Hardware',
+                description: <>hands on experiences with computer Hardware.</>,
+                images: []
+            },
+            {
+                title: 'Scripting/Programming',
+                description: <>Constantly tinkering with software and the limitless possibilities.</>,
+                images: []
+            },
         ]
     }
 }

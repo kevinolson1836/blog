@@ -1,5 +1,9 @@
 import { IconType } from 'react-icons';
 
+import { 
+	CiServer 
+} from "react-icons/ci";
+
 import {
 	HiChevronUp,
 	HiChevronDown,
@@ -62,4 +66,5 @@ export const iconLibrary: Record<string, IconType> = {
 	github: FaGithub,
 	linkedin: FaLinkedin,
 	x: FaXTwitter,
+	CiServer: CiServer,
 };

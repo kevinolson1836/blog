@@ -1,4 +1,4 @@
-import { Avatar, Button, Flex, Heading, Icon, IconButton, SmartImage, Tag, Text } from '@/once-ui/components';
+import { Avatar, Button, Flex, Heading, Icon, IconButton, SmartImage, Tag, Text, Grid } from '@/once-ui/components';
 import { baseURL, renderContent } from '@/app/resources';
 import TableOfContents from '@/components/about/TableOfContents';
 import styles from '@/components/about/about.module.scss'
@@ -60,6 +60,11 @@ export default function About(
             display: about.studies.display,
             items: about.studies.institutions.map(institution => institution.name)
         },
+        // { 
+        //     title: about.certs.title,
+        //     display: about.certs.display,
+        //     items: about.certs.institutions.map(certs => certs.name)
+        // },
         { 
             title: about.technical.title,
             display: about.technical.display,
@@ -138,7 +143,7 @@ export default function About(
                 )}
                 <Flex
                     className={styles.blockAlign}
-                    fillWidth flex={9} maxWidth={40} direction="column">
+                    fillWidth flex={18} maxWidth={100} direction="column">
                     <Flex
                         id={about.intro.title}
                         fillWidth minHeight="160"
@@ -221,7 +226,7 @@ export default function About(
                             </Heading>
                             <Flex
                                 direction="column"
-                                fillWidth gap="l" marginBottom="40">
+                                fillWidth gap="l" marginBottom="128">
                                 {about.work.experiences.map((experience, index) => (
                                     <Flex
                                         key={`${experience.company}-${experience.role}-${index}`}
@@ -299,7 +304,7 @@ export default function About(
                             </Heading>
                             <Flex
                                 direction="column"
-                                fillWidth gap="l" marginBottom="40">
+                                fillWidth gap="l" marginBottom="128">
                                 {about.studies.institutions.map((institution, index) => (
                                     <Flex
                                         key={`${institution.name}-${index}`}
@@ -320,6 +325,38 @@ export default function About(
                             </Flex>
                         </>
                     )}
+                    {/* { about.certs.display && (
+                        <>
+                            <Heading
+                                as="h2"
+                                id={about.certs.title}
+                                variant="display-strong-s"
+                                marginBottom="m">
+                                {about.certs.title}
+                            </Heading>
+                            <Flex
+                                direction="column"
+                                fillWidth gap="l" marginBottom="40">
+                                {about.certs.institutions.map((certs, index) => (
+                                    <Flex
+                                        key={`${certs.name}-${index}`}
+                                        fillWidth gap="4"
+                                        direction="column">
+                                        <Text
+                                            id={certs.name}
+                                            variant="heading-strong-l">
+                                            {certs.name}
+                                        </Text>
+                                        <Text
+                                            variant="heading-default-xs"
+                                            onBackground="neutral-weak">
+                                            {certs.description}
+                                        </Text>
+                                    </Flex>
+                                ))}
+                            </Flex>
+                        </>
+                    )} */}
 
                     { about.technical.display && (
                         <>
@@ -331,12 +368,16 @@ export default function About(
                             </Heading>
                             <Flex
                                 direction="column"
-                                fillWidth gap="l">
+                                fillWidth gap="l" marginBottom='128'>
+                            <Grid     
+                            columns={`repeat(${2}, 1fr)`} mobileColumns="1col"
+                            fillWidth marginBottom="40" gap="xl">
                                 {about.technical.skills.map((skill, index) => (
                                     <Flex
                                         key={`${skill}-${index}`}
                                         fillWidth gap="4"
                                         direction="column">
+
                                         <Text
                                             variant="heading-strong-l">
                                             {skill.title}
@@ -348,15 +389,15 @@ export default function About(
                                         </Text>
                                         {skill.images.length > 0 && (
                                             <Flex
-                                                fillWidth paddingTop="m" gap="12"
-                                                wrap>
+                                            fillWidth paddingTop="m" gap="12"
+                                            wrap>
                                                 {skill.images.map((image, index) => (
                                                     <Flex
-                                                        key={index}
-                                                        border="neutral-medium"
-                                                        borderStyle="solid-1"
-                                                        radius="m"
-                                                        minWidth={image.width} height={image.height}>
+                                                    key={index}
+                                                    border="neutral-medium"
+                                                    borderStyle="solid-1"
+                                                    radius="m"
+                                                    minWidth={image.width} height={image.height}>
                                                         <SmartImage
                                                             enlarge
                                                             radius="m"
@@ -369,6 +410,7 @@ export default function About(
                                         )}
                                     </Flex>
                                 ))}
+                                </Grid>
                             </Flex>
                         </>
                     )}
