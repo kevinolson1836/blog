@@ -118,28 +118,7 @@ export default function Home(
 								variant="body-default-l">
 								{home.subline}
 							</Text>
-						</RevealFx>
-
-						<RevealFx translateY="12" delay={0.4}>
-							{/* <Button
-								data-border="rounded"
-								href={`/${locale}/about`}
-								variant="tertiary"
-								suffixIcon="chevronRight"
-								size="l"> */}
-								{/* <Flex
-									gap="8"
-									alignItems="center"
-									justifyContent="center">
-									{about.avatar.display && (
-										<Avatar
-											src={person.avatar}
-											size="xl"/>
-										)}d
-								</Flex> */}
-							{/* </Button> */}
-						</RevealFx>
-					
+						</RevealFx>	
 					</Flex>
 
 			</Flex>
