@@ -31,9 +31,9 @@ const effects = {
 
 const style = {
     theme:       'dark',         // dark | light
-    neutral:     'sand',         // sand | gray | slate
-    brand:       'red',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-    accent:      'yellow',       // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+    neutral:     '#7C7ECB',         // sand | gray | slate
+    brand:       '#00E1FF',         // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
+    accent:      '#2E052B',       // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
     solid:       'contrast',     // color | contrast
     solidStyle:  'flat',         // flat | plastic
     border:      'playful',      // rounded | playful | conservative
