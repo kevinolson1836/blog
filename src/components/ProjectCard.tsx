@@ -27,7 +27,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
     const t = useTranslations();
 
-    let loopInterval; // To store the interval ID
+    let loopInterval = setTimeout(() =>{}); // To store the interval ID
     const [keep_looping, setkeep_looping] = useState(true);
 
     
@@ -41,7 +41,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
 
     const loop = () => {
-        // clearInterval(loopInterval);
+        clearInterval(loopInterval);
         if (keep_looping == true){
             loopInterval = setTimeout(() => {
                 setIsTransitioning(true);
@@ -55,6 +55,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     };
 
     const handleImageClick = () => {
+        clearInterval(loopInterval)
         setkeep_looping(false);
         if(images.length > 1) {
             setIsTransitioning(false);
@@ -64,13 +65,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 setTimeout(() => {
                     setIsTransitioning(true);
                 }, 50);
-            }, 300);
+            }, 430);
         }
     };
     
     const handleControlClick = (index: number) => {
         setkeep_looping(false)
-        console.log("should stop looping!")
         if (index !== activeIndex) {
             setIsTransitioning(true);
             setTimeout(() => {

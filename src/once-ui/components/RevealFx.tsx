@@ -16,7 +16,7 @@ interface RevealFxProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 const RevealFx = forwardRef<HTMLSpanElement, RevealFxProps>(({
 	children,
-	speed = 'medium',
+	speed = 'fast',
 	delay = 0,
 	translateY,
 	trigger,
@@ -43,7 +43,7 @@ const RevealFx = forwardRef<HTMLSpanElement, RevealFxProps>(({
 	const getSpeedDuration = () => {
 		switch (speed) {
 			case 'fast':
-				return '0.5s';
+				return '0.7s';
 			case 'medium':
 				return '2s';
 			case 'slow':

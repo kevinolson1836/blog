@@ -58,7 +58,7 @@ export default function About(
         { 
             title: about.studies.title,
             display: about.studies.display,
-            items: about.studies.institutions.map(institution => institution.name)
+            items: about.studies.institutions.map(institution => institution.name),
         },
         // { 
         //     title: about.certs.title,
@@ -121,10 +121,10 @@ export default function About(
                         <Flex
                             gap="8"
                             alignItems="center">
-                            <Icon
+                            {/* <Icon
                                 onBackground="accent-weak"
                                 name="globe"/>
-                            {person.location}
+                            {person.location} */}
                         </Flex>
                         { person.languages.length > 0 && (
                             <Flex
@@ -307,14 +307,26 @@ export default function About(
                                 fillWidth gap="l" marginBottom="128">
                                 {about.studies.institutions.map((institution, index) => (
                                     <Flex
-                                        key={`${institution.name}-${index}`}
+                                        key={`${institution.name}-${institution.year}-${index}`}
                                         fillWidth gap="4"
                                         direction="column">
-                                        <Text
-                                            id={institution.name}
-                                            variant="heading-strong-l">
-                                            {institution.name}
-                                        </Text>
+                                        {/* <Flex
+                                            fillWidth
+                                            justifyContent="left"
+                                            alignItems="flex-end"
+                                            marginBottom="4"> */}
+                                            <Text
+                                                id={institution.name}
+                                                variant="heading-strong-l">
+                                                {institution.name}
+                                            </Text>
+                                            <Text
+                                                    // paddingLeft='s'
+                                                    variant="heading-default-xs"
+                                                    onBackground="brand-weak">
+                                                    {institution.year}
+                                            </Text>
+                                        {/* </Flex> */}
                                         <Text
                                             variant="heading-default-xs"
                                             onBackground="neutral-weak">

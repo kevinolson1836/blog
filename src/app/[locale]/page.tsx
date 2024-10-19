@@ -130,13 +130,14 @@ export default function Home(
 			
 			{/* used as padding */}
 			<Flex></Flex>
-
-			<Heading		
-			as="h2"
-			wrap="balance"
-			variant="display-strong-xs">
-			HomeLab
-			</Heading>
+			
+			<RevealFx translateY="4" >
+				<Heading
+					wrap="balance"
+					variant="display-strong-l">
+					HomeLab Write ups
+				</Heading>
+			</RevealFx>
 
 			{routes['/blog'] && (
 				<Flex fillWidth paddingX="20" paddingY="20">
@@ -151,3 +152,4 @@ export default function Home(
 		</Flex>
 	);
 }
+

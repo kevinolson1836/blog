@@ -111,8 +111,9 @@ const about = {
         title: 'Education',
         institutions: [
             {
-                name: 'Illinois State University 2020-2023',
+                name: 'Illinois State University',
                 description: <>Earned a Batchlors of Science in Information Systems.</>,
+                year: "2020 - 2023"
             },
             {
                 name: 'Certificates',
