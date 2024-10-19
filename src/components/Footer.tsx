@@ -47,7 +47,9 @@ export const Footer = () => {
                         )
                     ))}
                 </Flex>
+                
             </Flex>
+            
         </Flex>
     )
 }
