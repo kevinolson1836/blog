@@ -131,11 +131,19 @@ export default function Home(
 			{/* used as padding */}
 			<Flex></Flex>
 
+			<Heading		
+			as="h2"
+			wrap="balance"
+			variant="display-strong-xs">
+			HomeLab
+			</Heading>
+
 			{routes['/blog'] && (
-				<Flex fillWidth paddingX="20">
-					<Posts range={[1,4]} columns="2" locale={locale}/>
+				<Flex fillWidth paddingX="20" paddingY="20">
+						<Posts range={[1,4]} columns="2" locale={locale}/>
 				</Flex>
-			)}
+
+		)}
 			<Projects range={[2]} locale={locale}/>
 			{ newsletter.display &&
 				<Mailchimp newsletter={newsletter} />

@@ -120,6 +120,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                     fillWidth maxWidth={32}
                     justifyContent="center">
                     {images.map((_, index) => (
+                        
                         <Flex
                             key={index}
                             onClick={() => handleControlClick(index)}
@@ -141,14 +142,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 fillWidth paddingX="l" paddingTop="xs" paddingBottom="m" gap="l">
                 {title && (
                     <Flex
-                        flex={5}>
-                        <Heading
-                            as="h2"
-                            wrap="balance"
-                            variant="display-strong-xs">
-                            {title}
-                        </Heading>
-                    </Flex>
+                            flex={5}>
+                    <SmartLink href={href}>
+                            <Heading
+                                as="h2"
+                                wrap="balance"
+                                variant="display-strong-xs">
+                                {title}
+                            </Heading>
+                            </SmartLink>
+                        </Flex>
                 )}
                 {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
                     <Flex
@@ -161,12 +164,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                 reverseOrder/>
                         )}
                         {description?.trim() && (
-                            <Text
-                                wrap="balance"
-                                variant="body-default-s"
-                                onBackground="neutral-weak">
-                                {description}
-                            </Text>
+                            <SmartLink href={href}>
+                                <Text
+                                    wrap="balance"
+                                    variant="body-default-s"
+                                    onBackground="neutral-weak">
+                                    {description}
+                                </Text>
+                            </SmartLink>
+                            
                         )}
                         {content?.trim() && (
                             <SmartLink
