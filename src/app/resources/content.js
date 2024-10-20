@@ -113,11 +113,12 @@ const about = {
             {
                 name: 'Illinois State University',
                 description: <>Earned a Batchlors of Science in Information Systems.</>,
-                year: "2020 - 2023"
+                timeframe: "2020 - 2023"
             },
             {
                 name: 'Certificates',
                 description: <>Actively pursuing the A+ Certification.</>,
+                timeframe: ""
             }
         ]
     },

@@ -106,10 +106,12 @@ const createI18nContent = (t) => {
                 {
                     name: 'University of Jakarta',
                     description: <>{t(`about.studies.institutions.University of Jakarta.description`)}</>,
+                    timeframe: <>{t(`about.studies.institutions.University of Jakarta.description`)}</>,
                 },
                 {
                     name: 'Build the Future',
                     description: <>{t("about.studies.institutions.Build the Future.description")}</>,
+                    timeframe: <>{t(`about.studies.institutions.University of Jakarta.description`)}</>,
                 }
             ]
         },

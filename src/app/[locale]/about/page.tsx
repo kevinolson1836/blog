@@ -307,7 +307,7 @@ export default function About(
                                 fillWidth gap="l" marginBottom="128">
                                 {about.studies.institutions.map((institution, index) => (
                                     <Flex
-                                        key={`${institution.name}-${institution.year}-${index}`}
+                                        key={`${institution.name}-${index}`}
                                         fillWidth gap="4"
                                         direction="column">
                                         {/* <Flex
@@ -324,7 +324,7 @@ export default function About(
                                                     // paddingLeft='s'
                                                     variant="heading-default-xs"
                                                     onBackground="brand-weak">
-                                                    {institution.year}
+                                                    {institution.timeframe}
                                             </Text>
                                         {/* </Flex> */}
                                         <Text
