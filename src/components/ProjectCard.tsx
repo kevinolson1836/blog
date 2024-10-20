@@ -181,7 +181,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                 href={href}>
                                     <Text
                                         variant="body-default-s">
-                                       {t("projectCard.label")}
+                                       {t("Read more")}
                                     </Text>
                             </SmartLink>
                         )}
