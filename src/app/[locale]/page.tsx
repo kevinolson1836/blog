@@ -74,20 +74,7 @@ export default function Home(
 					}),
 				}}
 			/>
-			<script
-			dangerouslySetInnerHTML={{
-				__html: `
-				<script async src="https://www.googletagmanager.com/gtag/js?id=G-C5RPZVT56L"></script>
-				<script>
-				window.dataLayer = window.dataLayer || [];
-				function gtag(){dataLayer.push(arguments);}
-				gtag('js', new Date());
 
-				gtag('config', 'G-C5RPZVT56L');
-				</script>
-				`,
-			}}
-			></script>
 
 			<Flex
 				fillWidth

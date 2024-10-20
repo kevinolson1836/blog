@@ -2,6 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
+import ReactGA from "react-ga4";
+
+// ReactGA.initialize("G-C5RPZVT56L");
+// ReactGA.send({ hitType: "pageview", page: "/", title: "Custom Title" });
+
+
 type Team = {
     name: string;
     role: string;
@@ -61,7 +67,19 @@ function getMDXData(dir: string) {
 
 export function getPosts(customPath = ['', '', '', '']) {
     const postsDir = path.join(process.cwd(), ...customPath);
-    return getMDXData(postsDir);
+   
+   
+    ReactGA.initialize('G-C5RPZVT56ws', {
+        testMode: false
+      });
+      
+      
+      // You can also track a page view
+      console.log(ReactGA.send({ hitType: 'pageview', page: "test"}));
+      
+   
+   
+      return getMDXData(postsDir);
 }
 
 export function formatDate(date: string, includeRelative = false) {
