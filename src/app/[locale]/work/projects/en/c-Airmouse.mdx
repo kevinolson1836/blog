@@ -1,7 +1,7 @@
 ---
-title: "Airmouse"
+title: "Airmouse - Arduino Nano 33 BLE"
 publishedAt: "2026-07-22"
-summary: "Airmouse desc."
+summary: "I created a glove that can track your hand in 3 dimensions and translate the movement into mouse movement."
 images:
   - "/images/projects/airmouse/airMouse1.jpg"
 team:
@@ -11,12 +11,27 @@ team:
     linkedIn: "https://www.linkedin.com/in/kevin-olson12/"
 ---
 
-While browsing Reddit, I came across a story about a disabled individual who was unable to play games on their computer due to their inability to use traditional controllers. The story resonated with me, and I felt compelled to do something about it. Using my previous experience and skill set, I developed a device I call the "Air-Mouse." This device allows the user to control their computer cursor simply by moving their hand, as well as map keyboard inputs to buttons on each finger of the glove.
+While browsing Reddit, I came across a story about a disabled individual who was unable to play games on their computer 
+due to their inability to use traditional controllers. The story resonated with me, and I felt compelled to do something 
+about it. Using my previous experience and skill set, I developed a device I call the "Air-Mouse." This device allows the 
+user to control their computer cursor simply by moving their hand, as well as map keyboard inputs to buttons on each finger 
+of the glove.
 
-I used the Arduino Nano 33 BLE for this project, as it comes equipped with a 9-axis inertial measurement unit (IMU) that includes an accelerometer, gyroscope, and magnetometer. These sensors allow me to track the device in 3D space, and therefore, accurately control the cursor's movement. Additionally, I created a Python application that connects to the BLE 33, allowing for the host machine to get the sensor data to properly handle the inputs.
+I used the Arduino Nano 33 BLE for this project, as it comes equipped with a 9-axis inertial measurement unit (IMU) that 
+includes an accelerometer, gyroscope, and magnetometer. These sensors allow me to track the device in 3D space, and therefore, 
+accurately control the cursor's movement. Additionally, I created a Python application that connects to the BLE 33, allowing 
+for the host machine to get the sensor data to properly handle the inputs.
 
-The BLE 33 was designed to act as a Human Interface Device (HID), such as a mouse or keyboard, but at the time of development, it was lacking the abilitys i needed and there for was not fully functional. To overcome this issue, I created the accompanying application. Although not the ideal solution, the Air-Mouse works effectively as a proof of concept to show playing games such as Minecraft is possible. The application listens for updates from the BLE 33, when a new value is read, using the values we can translate that into cursor movement and keyboard presses.
+The BLE 33 was designed to act as a Human Interface Device (HID), such as a mouse or keyboard, but at the time of 
+development, it was lacking the abilitys i needed and there for was not fully functional. To overcome this issue, I created 
+the accompanying application. Although not the ideal solution, the Air-Mouse works effectively as a proof of concept to show 
+playing games such as Minecraft is possible. The application listens for updates from the BLE 33, when a new value is read, 
+using the values we can translate that into cursor movement and keyboard presses.
 
-This project was just a prototype and proof of concept. There are many ways to improve upon it, such as using conductive thread to hide the wires, implementing easier to click buttons, or finding another way to sense the finger movements to activate key presses. If I were to go back to the projecy I would foucs on fixing the code to make it more robust and user-friendly.
+This project was just a prototype and proof of concept. There are many ways to improve upon it, such as using conductive thread
+ to hide the wires, implementing easier to click buttons, or finding another way to sense the finger movements to activate key
+  presses. If I were to go back to the projecy I would foucs on fixing the code to make it more robust and user-friendly.
 
-I learned a great deal from this project. It was my first time making a wearable device, and I now understand the importance of flexibility to accommodate for human movement. I also gained more knowledge in Bluetooth technology and problem-solving due to the lack of software for the Arduino BLE 33. All of these experiences will be extremely valuable in my future projects.
+I learned a great deal from this project. It was my first time making a wearable device, and I now understand the importance 
+f flexibility to accommodate for human movement. I also gained more knowledge in Bluetooth technology and problem-solving due
+ to the lack of software for the Arduino BLE 33. All of these experiences will be extremely valuable in my future projects.

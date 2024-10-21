@@ -69,7 +69,7 @@ export function getPosts(customPath = ['', '', '', '']) {
     const postsDir = path.join(process.cwd(), ...customPath);
    
    
-    ReactGA.initialize('G-C5RPZVT56L', {
+    ReactGA.initialize('GT-NBQWMX3', {
         testMode: false
       });
       

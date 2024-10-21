@@ -127,7 +127,7 @@ export default function Project({ params }: WorkParams) {
 					variant="tertiary"
 					size="s"
 					prefixIcon="chevronLeft">
-					Projects
+					Work
 				</Button>
 				<Heading
 					variant="display-strong-s">
@@ -143,7 +143,7 @@ export default function Project({ params }: WorkParams) {
 			)}
 			<Flex style={{margin: 'auto'}}
 				as="article"
-				maxWidth="xs" fillWidth
+				maxWidth="s" fillWidth
 				direction="column">
 				<Flex
 					gap="12" marginBottom="24"

@@ -167,7 +167,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                             <SmartLink href={href}>
                                 <Text
                                     wrap="balance"
-                                    variant="body-default-s"
+                                    variant="body-default-xl"
                                     onBackground="neutral-weak">
                                     {description}
                                 </Text>
@@ -180,8 +180,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                 style={{margin: '0', width: 'fit-content'}}
                                 href={href}>
                                     <Text
-                                        variant="body-default-s">
-                                       {t("projectCard.label")}
+                                        variant="body-default-m">
+                                       Read more
                                     </Text>
                             </SmartLink>
                         )}

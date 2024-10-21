@@ -23,7 +23,8 @@ export type TShirtSizes =
 | 's'
 | 'm'
 | 'l'
-| 'xl';
+| 'xl'
+| 'xxl';
 
 export type ResponsiveSpacingToken = TShirtSizes;
 

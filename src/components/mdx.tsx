@@ -1,7 +1,7 @@
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 import React, { ReactNode } from 'react';
 
-import { SmartImage, SmartLink, Text } from '@/once-ui/components';
+import { Heading, Flex, SmartImage, SmartLink, Text } from '@/once-ui/components';
 import { HeadingLink } from '@/components';
 
 import { TextProps } from '@/once-ui/interfaces';
@@ -94,13 +94,16 @@ function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
     const CustomHeading = ({ children, ...props }: TextProps) => {
     const slug = slugify(children as string);
         return (
-            <HeadingLink
-                style={{marginTop: 'var(--static-space-24)', marginBottom: 'var(--static-space-12)'}}
-                level={level}
-                id={slug}
-                {...props}>
-                {children}
-            </HeadingLink>
+            <Heading
+            variant="body-strong-xl">
+                <HeadingLink
+                    style={{marginTop: 'var(--static-space-24)', marginBottom: 'var(--static-space-12)'}}
+                    level={1}
+                    id={slug}
+                    {...props}>
+                    {children}
+                </HeadingLink>
+            </Heading>
         );
     };
   
@@ -112,7 +115,7 @@ function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
 function createParagraph({ children }: TextProps) {
     return (
         <Text style={{lineHeight: '150%'}}
-            variant="body-default-m"
+            variant="body-default-l"
             onBackground="neutral-medium"
             marginTop="8"
             marginBottom="12">

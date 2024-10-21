@@ -47,6 +47,7 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({
     };
 
     const variantMap = {
+        0: 'heading-strong-xl',
         1: 'heading-strong-xl',
         2: 'heading-strong-xl',
         3: 'heading-strong-l',
@@ -60,27 +61,26 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({
 
     return (
         <Flex>
-            <Toaster toasts={toasts} removeToast={removeToast}/>
+            {/* <Toaster toasts={toasts} removeToast={removeToast}/> */}
             <Flex
                 style={style}
-                onClick={() => copyURL(id)}
+                // onClick={() => copyURL(id)}
                 className={styles.control}
-                alignItems="center"
                 gap="4">
                 <Heading
-                    className={styles.text}
+                    // className={styles.text}
                     id={id}
-                    variant={variant}
-                    as={asTag}>
+                    variant={variant}>
+                    
                     {children}
                 </Heading>
-                <IconButton
+                {/* <IconButton
                     className={styles.visibility}
                     size="s"
                     icon="openLink"
                     variant="ghost"
                     tooltip="Copy"
-                    tooltipPosition="right" />
+                    tooltipPosition="right" /> */}
             </Flex>
         </Flex>
     );
