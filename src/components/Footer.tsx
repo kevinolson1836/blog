@@ -2,12 +2,19 @@ import { renderContent } from "@/app/resources";
 import { Flex, IconButton, SmartLink, Text } from "@/once-ui/components"
 import { useTranslations } from "next-intl";
 // import { person, social } from '@/app/resources'
+import ReactGA from 'react-ga';
+  const TRACKING_ID = "G-RYLPF4LQNV"
+
 
 export const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     const t = useTranslations();
     const { person, social } = renderContent(t);
+
+    useEffect(() => {
+         ReactGA.initialize(TRACKING_ID);
+       }, []);
 
     return (
         
