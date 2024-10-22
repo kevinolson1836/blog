@@ -8,7 +8,7 @@ import React, { useEffect } from "react";  // <-- Import useEffect from
 import ReactGA from "react-ga4";
 const TRACKING_ID = "G-RYLPF4LQNV";
 
-inport { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export const Footer = () => {
     const currentYear = new Date().getFullYear();
