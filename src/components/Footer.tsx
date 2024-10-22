@@ -2,8 +2,8 @@ import { renderContent } from "@/app/resources";
 import { Flex, IconButton, SmartLink, Text } from "@/once-ui/components"
 import { useTranslations } from "next-intl";
 // import { person, social } from '@/app/resources'
-import ReactGA from 'react-ga';
-  const TRACKING_ID = "G-RYLPF4LQNV"
+import ReactGA from "react-ga4";
+const TRACKING_ID = "G-RYLPF4LQNV"
 
 
 export const Footer = () => {
@@ -14,6 +14,7 @@ export const Footer = () => {
 
     useEffect(() => {
          ReactGA.initialize(TRACKING_ID);
+          ReactGA.send({ hitType: "pageview", page: "test"});
        }, []);
 
     return (
