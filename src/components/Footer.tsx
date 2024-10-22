@@ -1,6 +1,7 @@
 import { renderContent } from "@/app/resources";
 import { Flex, IconButton, SmartLink, Text } from "@/once-ui/components"
 import { useTranslations } from "next-intl";
+import React, { useEffect } from "react";  // <-- Import useEffect from 
 // import { person, social } from '@/app/resources'
 import ReactGA from "react-ga4";
 const TRACKING_ID = "G-RYLPF4LQNV"
