@@ -1,0 +1,37 @@
+---
+title: "Minecraft server self hosted in the Homelab"
+publishedAt: "2024-10-22"
+
+summary: "A quick write up about how I hosted a Minecraft server for my friends and I using Tailscale funnels."
+---
+
+## Why I wanted to host the server
+
+For many years now I have loved Minecraft and the community around it. I can remember spending countless hours playing on a 
+random server with not a lot of active players creating long lasting friendships and memories with the few people that would 
+play on the server. Having my Homelab sitting mostly idle, I saw a fabulous opportunity to make a server for me and my friends. 
+
+## What I did different this time
+
+In the past I was using just Minecraft server jar, but that was a nightmare to manage the different Minecraft versions along with
+the different Java versions. I was initially considering doing this again but I knew that there must have been a better solution.
+I found a docker container and it seemed to work for the most part after a bit of configuration that is. I 
+used this for a month or two until I ran into the same issue as before, with managing all of the many different versions of Minecraft and Java. 
+
+Then this most recent time setting up another server I discovered [this docker container](https://docker-minecraft-server.readthedocs.io/en/latest/). 
+This one is much more suited for my use case, it allows you to specify what version of Minecraft, if you want to use a different server like forge
+or paper for example and any plugins that you might want to add plus so many other options that I personally did not dive too deep into. 
+
+This all can be configured from the docker-compose.yaml file and this config can be easily moved to a different machine if needed,
+the container is an absolute must if you want to deploy your own Minecraft server in ur own Homelab. 
+
+## Okay, but how can others connect? 
+
+You might be wondering how I was able to allow my friends to connect to the server if it’s running in my Homelab in my local network,
+ well lucky we have an amazing piece of software called Tailscale, the best free VPN for a Homelab.  currently Tailscale offers what
+ they call “funnel” this allows you too open a port to the open internet that anyone can access. When you run the command you specify 
+ the port you want to funnel and it gives you a web address that you can then give out to your friends to connect to the server without 
+ installing the application. So keep in mind that this feature is still in beta and functionality can change. 
+
+Using the new docker container  and Tailscale has allowed me to create and easily manage a Minecraft server for me and my friends. 
+Opening this port up to the world does come with security issues that you must address if you want to be safe. 
