@@ -20,7 +20,7 @@ export const Footer = () => {
           ReactGA.initialize(TRACKING_ID);
           const location = useLocation();
           ReactGA.send({ hitType: "pageview", page: location.pathname});
-       }, [location.pathname]);
+       }, []);
 
     return (
         
