@@ -17,7 +17,10 @@ export const Footer = () => {
 
     useEffect(() => {
           ReactGA.initialize(TRACKING_ID);
-          ReactGA.send({ hitType: "pageview", page: window.location.pathname});
+          let rawLocation = window.location.pathname
+          const parsedLocation = rawLocation.replace(/\//g, ''); // removes all '/'
+          ReactGA.send({ hitType: "pageview", page: parsedLocation});
+          console.log(parsedLocation);
        }, []);
 
     return (
