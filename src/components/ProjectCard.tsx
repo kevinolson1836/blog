@@ -84,16 +84,23 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
     return (
         <Flex
+            style={{
+                width: '90%',
+                alignContent: "center",
+               
+            }}
             fillWidth gap="m"
             direction="column">
             <Flex 
             onClick={handleImageClick} 
-            style={{justifyContent: "center"}}
+            style={{
+                justifyContent: "center",
+            }}
             onLoad={loop}
             >
             <RevealFx
                     style={{
-                        width: '100%',
+                        width: '90%',
                         alignContent: "center"
                     }}
                     delay={0}

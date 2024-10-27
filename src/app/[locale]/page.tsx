@@ -126,7 +126,8 @@ export default function Home(
 			</Flex>
 			
 			{/* under main heading */}
-			<RevealFx translateY="16" delay={0.1}>
+			<RevealFx translateY="16" delay={0.05}>
+				{/* <Projects range={[1,1]} locale={locale} name="Siemens - Current role"/> */}
 				<Projects range={[1,1]} locale={locale}/>
 			</RevealFx>
 			
