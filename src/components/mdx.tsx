@@ -1,10 +1,8 @@
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 import React, { ReactNode } from 'react';
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
-// import { githubDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import 'highlight.js/styles/github-dark.css'; // Choose your preferred theme
-
-// import "./highlight.css"
+import { github } from 'react-syntax-highlighter/dist/esm/styles/hljs'; // Dark theme
+import 'highlight.js/styles/github-dark.css'; // Optional: Choose your preferred theme
 
 import { Heading, Flex, SmartImage, SmartLink, Text } from '@/once-ui/components';
 import { HeadingLink } from '@/components';
@@ -83,7 +81,7 @@ function createImage({ alt, src, ...props }: SmartImageProps & { src: string }) 
             aspectRatio="16 / 9"
             alt={alt}
             src={src}
-            {...props}/>
+            {...props} />
     );
 }
 
@@ -152,17 +150,21 @@ const components = {
     Table,
     code: ({ className, children }: CodeProps) => {
         const language = className?.replace('language-', '') || 'plaintext';
+        // Ensure children is a string
+        const codeContent = typeof children === 'string' ? children : String(children);
+
         return (
-            <SyntaxHighlighter 
-                language={language} 
-                PreTag="pre"  // Set the tag type for <pre> 
+            <SyntaxHighlighter
+                language={language}
+                style={github}
+                PreTag="pre"  // Set the tag type for <pre>
                 customStyle={{
                     backgroundColor: '#222',  // Dark grey background
                     color: '#fff',            // White text color
                     padding: '1em',
                     borderRadius: '8px',      // Optional: rounded corners
                 }}>
-                {children}
+                {codeContent}  {/* Pass children as a string */}
             </SyntaxHighlighter>
         );
     },
