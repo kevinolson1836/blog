@@ -1,5 +1,10 @@
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 import React, { ReactNode } from 'react';
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+// import { githubDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import 'highlight.js/styles/github-dark.css'; // Choose your preferred theme
+
+// import "./highlight.css"
 
 import { Heading, Flex, SmartImage, SmartLink, Text } from '@/once-ui/components';
 import { HeadingLink } from '@/components';
@@ -7,6 +12,7 @@ import { HeadingLink } from '@/components';
 import { TextProps } from '@/once-ui/interfaces';
 import { SmartImageProps } from '@/once-ui/components/SmartImage';
 
+// Define types for Table
 type TableProps = {
     data: {
         headers: string[];
@@ -20,9 +26,9 @@ function Table({ data }: TableProps) {
     ));
     const rows = data.rows.map((row, index) => (
         <tr key={index}>
-        {row.map((cell, cellIndex) => (
-            <td key={cellIndex}>{cell}</td>
-        ))}
+            {row.map((cell, cellIndex) => (
+                <td key={cellIndex}>{cell}</td>
+            ))}
         </tr>
     ));
 
@@ -36,6 +42,7 @@ function Table({ data }: TableProps) {
     );
 }
 
+// Define types for CustomLink
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
     href: string;
     children: ReactNode;
@@ -61,6 +68,7 @@ function CustomLink({ href, children, ...props }: CustomLinkProps) {
     );
 }
 
+// Function to handle images
 function createImage({ alt, src, ...props }: SmartImageProps & { src: string }) {
     if (!src) {
         console.error("SmartImage requires a valid 'src' property.");
@@ -76,9 +84,10 @@ function createImage({ alt, src, ...props }: SmartImageProps & { src: string }) 
             alt={alt}
             src={src}
             {...props}/>
-        )
+    );
 }
 
+// Function to slugify headings
 function slugify(str: string): string {
     return str
         .toString()
@@ -90,14 +99,14 @@ function slugify(str: string): string {
         .replace(/\-\-+/g, '-') // Replace multiple - with single -
 }
 
+// Function to create headings
 function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
     const CustomHeading = ({ children, ...props }: TextProps) => {
-    const slug = slugify(children as string);
+        const slug = slugify(children as string);
         return (
-            <Heading
-            variant="body-strong-xl">
+            <Heading variant="body-strong-xl">
                 <HeadingLink
-                    style={{marginTop: 'var(--static-space-24)', marginBottom: 'var(--static-space-12)'}}
+                    style={{ marginTop: 'var(--static-space-24)', marginBottom: 'var(--static-space-12)' }}
                     level={1}
                     id={slug}
                     {...props}>
@@ -106,24 +115,30 @@ function createHeading(level: 1 | 2 | 3 | 4 | 5 | 6) {
             </Heading>
         );
     };
-  
     CustomHeading.displayName = `Heading${level}`;
-  
     return CustomHeading;
 }
 
+// Function to create paragraphs
 function createParagraph({ children }: TextProps) {
     return (
-        <Text style={{lineHeight: '150%'}}
-            variant="body-default-l"
-            onBackground="neutral-medium"
-            marginTop="8"
-            marginBottom="12">
+        <Text style={{ lineHeight: '150%' }}
+              variant="body-default-l"
+              onBackground="neutral-medium"
+              marginTop="8"
+              marginBottom="12">
             {children}
         </Text>
     );
+}
+
+// Define the types for the 'code' component props
+type CodeProps = {
+    className?: string;
+    children: ReactNode;
 };
 
+// Define the components with the code block handler
 const components = {
     p: createParagraph as any,
     h1: createHeading(1) as any,
@@ -135,12 +150,30 @@ const components = {
     img: createImage as any,
     a: CustomLink as any,
     Table,
+    code: ({ className, children }: CodeProps) => {
+        const language = className?.replace('language-', '') || 'plaintext';
+        return (
+            <SyntaxHighlighter 
+                language={language} 
+                PreTag="pre"  // Set the tag type for <pre> 
+                customStyle={{
+                    backgroundColor: '#222',  // Dark grey background
+                    color: '#fff',            // White text color
+                    padding: '1em',
+                    borderRadius: '8px',      // Optional: rounded corners
+                }}>
+                {children}
+            </SyntaxHighlighter>
+        );
+    },
 };
 
+// Define the props for the CustomMDX component
 type CustomMDXProps = MDXRemoteProps & {
     components?: typeof components;
 };
 
+// CustomMDX component for rendering MDX content
 export function CustomMDX(props: CustomMDXProps) {
     return (
         <MDXRemote

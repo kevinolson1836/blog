@@ -1,0 +1,120 @@
+---
+title: "Mealie - A recipe manager"
+publishedAt: "2024-11-11"
+summary: "A Self hosted recipe manger that I use to scrape and import recipes from the web, linked with my website mealie.kevin-olson.net"
+images:
+  - "/images/projects/mealie/mainpage.png"
+
+team:
+  - name: "Kevin Olson"
+    role: ""
+    avatar: "/images/avatar.png"
+    linkedIn: "https://www.linkedin.com/in/kevin-olson12/"
+---
+
+
+![mealie](/images/projects/mealie/mainpage.png)
+
+# Setting Up Mealie in My Homelab with Docker Compose
+
+Recently, I added a new tool to my homelab that has been a game-changer for managing recipes: **Mealie**. It's a self-hosted recipe manager that makes organizing, importing, and sharing recipes incredibly easy. Let me walk you through why I chose Mealie, how I set it up using Docker Compose, and some of the cool features it offers.
+
+## What is Mealie?
+
+Mealie is a lightweight and flexible recipe manager that can run in a Docker container. Its standout feature is the ability to scrape recipes directly from websites, making it easy to build a personalized collection of your favorite dishes. You can also import recipes from existing files and organize them into categories for better accessibility.
+
+Best of all, I can access my Mealie instance securely at [https://mealie.kevin-olson.net/](https://mealie.kevin-olson.net/), thanks to some custom DNS configuration.
+
+
+## Setting Up Mealie with Docker Compose
+
+Here’s how I set up Mealie in my homelab:
+
+### ‎ 
+
+### 1. Create a Docker Compose File
+First I needed to create a `docker-compose.yml` file with the following content for my use case:
+
+
+```javascript
+console.log('Hello, world!');
+```
+
+```yaml
+  services:
+    mealie:
+      image: ghcr.io/mealie-recipes/mealie:v2.1.0 #
+      container_name: mealie
+      restart: always
+      ports:
+          - "9925:9000" # change this as needed
+      deploy:
+        resources:
+          limits:
+            memory: 1000M #
+      volumes:
+        - mealie-data:/app/data/
+      environment:
+        # Set Backend ENV Variables Here
+        ALLOW_SIGNUP: "true"
+        PUID: 1000
+        PGID: 1000
+        TZ: America/Anchorage
+        MAX_WORKERS: 1
+        WEB_CONCURRENCY: 1
+        BASE_URL: https://mealie.kevin-olson.net
+
+  volumes:
+    mealie-data:
+
+```
+
+### ‎ 
+
+### 2. Run the Container
+After saving the configuration, I ran the following command to spin up the Mealie container:
+
+'''  docker-compose up -d  '''
+
+### ‎ 
+
+### 3. Access Mealie
+Once the container was running, I went to make it accessible at localhost:9925 you will need to change the IP and port to your needs. 
+if succesful you should land on the main page of Mealie, after you set it up and configure it and you have added some recipies you should see something like this:
+
+![mealie](/images/projects/mealie/mainpage.png)
+
+
+### ‎ 
+
+
+
+
+### Cool Features of Mealie
+Here are some of the awesome things I’ve discovered about Mealie so far:
+
+1. Recipe Scraping
+One of Mealie’s most impressive features is its ability to scrape recipes directly from websites. Just paste a URL, and Mealie will automatically extract the ingredients, instructions, and even photos!
+
+2. Importing Recipes
+If you have recipes stored in other formats (like JSON or plain text), you can easily import them into Mealie. It supports a variety of formats, making migration seamless.
+
+3. Custom Categories
+Organizing recipes is a breeze with Mealie’s category system. I’ve created categories like "Weeknight Dinners," "Desserts," and "Meal Prep" to quickly find what I need.
+
+4. Meal Planning
+Mealie isn’t just a recipe organizer—it also offers a meal planning feature. I can schedule meals for the week and even generate a shopping list based on the recipes I’ve selected.
+
+5. Multi-User Support
+Mealie supports multiple users, so everyone in the household can contribute their favorite recipes or access the shared collection.
+
+6. Self-Hosting Benefits
+Running Mealie in my homelab means I retain full control of my data. It’s fast, private, and tailored to my needs.
+
+
+
+### Why I Love Mealie
+Mealie has turned my scattered recipe collection into a well-organized library that's accessible from anywhere. Its integration with Docker makes deployment straightforward, and its rich features—like recipe scraping and meal planning—make it a powerful tool for anyone who loves to cook.
+
+If you’re looking for a self-hosted solution to manage your recipes, I highly recommend giving Mealie a try. And if you want to see what it looks like in action, check out https://mealie.kevin-olson.net/.
+
