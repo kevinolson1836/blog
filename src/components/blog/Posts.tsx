@@ -26,14 +26,28 @@ export function Posts({
           )
         : sortedBlogs;
 
+        // for (let i = 0; i < allBlogs.length; i++) {
+        //     console.log("posts: " + allBlogs[i].metadata.title);
+        //   }
+        //   console.log("posts count: " + allBlogs.length)
+
+
     return (
         <>
             { displayedBlogs.length > 0 && (
 
                 <Grid
                 columns={`repeat(${columns}, 1fr)`} mobileColumns="1col"
-                fillWidth marginBottom="40" gap="l" paddingX="l">
+                fillWidth marginBottom="40" gap="l" paddingX="l"
+                style={{
+                    width: '80%',
+                    alignContent: "center",
+                    marginLeft: "10%",
+                       
+                }}
+                >
                     {displayedBlogs.map((post) => (
+                    
                         <SmartLink
                             style={{
                                 textDecoration: 'none',
@@ -43,8 +57,7 @@ export function Posts({
                                 borderLeft: "4px solid grey",  // Adds a border to the left
                                 borderRight: "2px solid grey",  // Adds a border to the left
                                 borderBottom: "4px solid grey", // Adds a border to the bottom                            
-                                borderTop: "2px solid grey", // Adds a border to the bottom        
-                                
+                                borderTop: "2px solid grey", // Adds a border to the bottom 
                             }}
                             className={styles.hover}
                             prefixIcon="chevronRight"

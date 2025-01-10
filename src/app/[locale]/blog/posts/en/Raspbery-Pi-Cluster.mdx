@@ -1,0 +1,52 @@
+---
+title: "Raspbery Pi Cluster using Gluster"
+publishedAt: "2025-01-10"
+summary: "A Raspberry Pi'Cluster with POE Switch, running Docker Swarm and Gluster"
+images:
+  - "/images/projects/raspPiCluster/1.jpeg"
+  - "/images/projects/raspPiCluster/2.jpeg"
+  - "/images/projects/raspPiCluster/3.jpeg"
+  - "/images/projects/raspPiCluster/4.jpeg"  
+  - "/images/projects/raspPiCluster/5.jpeg"
+
+team:
+  - name: "Kevin Olson"
+    role: ""
+    avatar: "/images/avatar.png"
+    linkedIn: "https://www.linkedin.com/in/kevin-olson12/"
+---
+
+ 
+![IMG1](/images/projects/raspPiCluster/1.png)
+
+# Why a Cluster?
+To be honest, I do not require the solution that a Cluster offers, that being HA also known as high availability. My Lab is currently being used by
+just me. So when a service does go down for what ever reason it only effects me, however because this is a Lab, a place for me to tinker with and learn
+I wanted to set one up for fun!
+
+# The hardware
+In the perfect world i would have 3 or more machines with the exact same hardware, but because that is expense I used the next best option i had 
+and that was the 3 Raspberry Pi's I had laying around. luckily you do not need the hardware to be exactly the same across machines so i was able 
+to use my 2GB, 4GB and 8GB Pi's I had on hand. what I was missing was some sort of storage solution. The micro SD card works for a while, but 
+as we all know they tend to fail and fail often when an OS is on them, so after a bit of research, I found a [1TB SATA SSD](https://www.amazon.com/dp/B09ZYQ84CM) 
+and a [SATA to USB cable](https://www.amazon.com/dp/B083ZJZGH2) that I can use. I set up two partitions on it, 250GB for the OS and related 
+software and the other 750GB as a partition for [Gluster](https://github.com/gluster/glusterfs) Now you might be wondering how I plan on powering 
+the Pi's, Thats where this [5 port POE TP-Link switch](https://www.amazon.com/dp/B076HZFY3F) comes into play
+
+
+# 3D Prints
+Now that I got the hardware picked out, Next I needed to find a place to keep it, and what better place than my Rack! it has everything we need, it 
+has power outlets for the POE switch and the rest of my networking gear to integrate it into my Homelab network. After looking around on a few of the 
+3D printing websites for some inspiration I created this:    ![IMG2](/images/projects/raspPiCluster/2.png) ![IMG3](/images/projects/raspPiCluster/3.png)  
+![IMG4](/images/projects/raspPiCluster/4.png)  ![IMG5](/images/projects/raspPiCluster/5.png)  This fits 4 Raspberry Pi's and the switch all within a 1U rack space!
+It may not be perfect, but it doesn't need to be, Homelabs are janky by design right!? for my needs it works perfect and fits in my rack 
+with out taking up too much space.
+
+# The set up 
+After putting the 3d prints together and hooking up the needed cables into the rest of my Lab I got started on the software side. As stated before, I decided to
+go with glusterfs aka Gluster. If you are unfamiliar with [Gluster](https://github.com/gluster/glusterfs), it is a free and open source software scalable network filesystem. With it I can achieve 
+HA with my network storage that I will use for my global configuration files and some base OS's that I need to be available at all times. Along side of Gluster
+I am using Docker Swarm to provide HA for my docker containers. I went with Docker Swarm over kubernetes for the easy setup and low resource requirements
+plus I already have several containers running on my main server that I can easily transfer over. Speaking of my main server, now that I have the Cluster 
+up and running, I can write a small script that turns off the server when its not being used and when I need the extra power that the Pi's can 
+not provide I can quickly spin up the main server, saving on electricity.

@@ -85,8 +85,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     return (
         <Flex
             style={{
-                width: '90%',
+                width: '80%',
                 alignContent: "center",
+                marginLeft: "10%",
                
             }}
             fillWidth gap="m"
@@ -158,6 +159,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                                 {title}
                             </Heading>
                             </SmartLink>
+                            cock
                         </Flex>
                 )}
                 {(avatars?.length > 0 || description?.trim() || content?.trim()) && (
