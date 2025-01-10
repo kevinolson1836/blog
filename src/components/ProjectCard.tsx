@@ -114,7 +114,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                         alt={title}
                         aspectRatio="16 / 9"
                         src={images[activeIndex]}
+                        unoptimized
                         style={{
+                            
                             border: '1px solid var(--neutral-alpha-weak)',
                             ...(images.length > 1 && {
                                 cursor: 'pointer',
