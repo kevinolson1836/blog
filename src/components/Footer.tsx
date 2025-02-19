@@ -21,14 +21,13 @@ export const Footer = () => {
         ReactGA.send({ hitType: "pageview", page: parsedLocation });
         console.log(parsedLocation);
 
-        // Cloudflare Web Analytics
-        const script = document.createElement("script");
-        script.src = "https://static.cloudflareinsights.com/beacon.min.js";
-        script.defer = true;
-        script.setAttribute("data-cf-beacon", '{"token": "ac87948dfd534a6ab0b6279f70dc03d8"}');
-        document.body.appendChild(script);
+    const script = document.createElement("script");
+    script.src = "https://static.cloudflareinsights.com/beacon.min.js";
+    script.defer = true;
+    script.setAttribute("data-cf-beacon", '{"token": "ac87948dfd534a6ab0b6279f70dc03d8"}');
+    document.body.appendChild(script);
 
-        console.log("Cloudflare Analytics script added");
+    console.log("Cloudflare Analytics script added");
 
     }, []);
 
